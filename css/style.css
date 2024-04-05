@@ -146,13 +146,10 @@ main{
   z-index: 5;
   text-decoration: none;
   color:rgba(0, 128, 0, 0.443);
+ 
 }
 .dropdown-menu{
   position: fixed;
   transform: translateX(-17%);
-
-}
-.dropdown-item a{
-  text-decoration: none;
 
 }
