@@ -1,0 +1,120 @@
+
+* {
+  margin: 0;
+}
+.header-container {
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+  .header-container__title {
+    width: 75%;
+    height: 12vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(13, 157, 73, 0.203);
+    transform: translate(50px, 50px);
+  }
+    h1{
+      color: white;
+      position: relative;
+      font-size: 2rem;
+      font-family: Pacifico,sans-serif;
+      font-style: italic;
+    }
+    i {
+      color: white;
+      font-size: 1.5rem;
+    }
+  .header-container__navigation{
+    background-color: rgba(3, 75, 3, 0.378);
+    color: white;
+    font-family: Pacifico,sans-serif;
+    font-style: italic;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+    li{
+      text-decoration: none;
+      list-style: none;
+  }
+}
+
+   .global-search__input {
+    width: 100%;
+    padding-top: 5px;
+    background-color: rgba(0, 128, 0, 0.443);
+    display: flex;
+    justify-content: center;
+  } 
+  input{
+    width:90%;
+  border-radius: 10px;
+  border: none;
+  
+  
+  }
+  input[type=text]{
+    color: rgba(0, 128, 0, 0.443);
+    padding-top: 6px;
+    padding-bottom:6px ;
+  }
+  ::placeholder{
+    color:rgba(0, 128, 0, 0.443);
+    }
+
+.video-container{
+  width: 100%;
+  height:30vh;
+  position: relative;
+  overflow: hidden;
+}
+.myvideo {
+ width:100%;
+ position: absolute;
+}
+h2{
+  height: inherit;
+  color: white;
+    font-family: Pacifico,sans-serif;
+    font-style: italic;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.quotes-container{
+  background-color: rgba(0, 128, 0, 0.443);
+}
+.product-selection{
+  background-color: rgba(0, 128, 0, 0.443);
+  width:99%;
+  height:30vh;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+footer{
+  height: 20vh;
+  background-color: rgba(0, 128, 0, 0.443);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  span{
+    color: white;
+    font-family: Pacifico,sans-serif;
+    
+  }
+}
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
