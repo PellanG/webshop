@@ -1,3 +1,14 @@
+<?php
+// include --  OK även om filen inte finns
+//include_once("Models/Products.php");
+require_once ("Models/Database.php");
+$sortCol = $_GET["sortCol"] ?? "";
+$sortOrder = $_GET["sortOrder"] ?? "";
+$categoryid = $_GET['$categoryid'] ?? "";
+$dbContext = new DBContext();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +35,24 @@
 
             </div>
             <nav class="header-container__navigation">
-                <li>Categories</li>
+                <li class="dropdown">Categories
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#!">All Products</a></li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <?php
+                        foreach ($dbContext->getAllCategories($categoryid) as $category) {
+
+                            if ($categoryid == null) {
+                                $categoryid = "#";
+                            }
+                            echo "<li><a class='dropdown-item' href='?categoryId=$category->id'>$category->title</a></li> ";
+                        }
+                        ?>
+
+                    </ul>
+                </li>
                 <li>Login</li>
                 <i class="fa-solid fa-cart-shopping">
                     <div class="cart-count-container"><span class="cart-count__content"><span></div>
@@ -40,9 +68,47 @@
 
         <section class="product-selection">
             <div class="product-selection-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th>Name<a href="?sortCol=productstitle&sortOrder=desc"><i
+                                        class="fa-solid fa-arrow-up-z-a"></i></a><a
+                                    href="?sortCol=productstitle&sortOrder=asc"><i
+                                        class="fa-solid fa-arrow-down-z-a"></i></a></th>
+                            <th>Category<a href="?sortCol=productstitle&sortOrder=desc"><i
+                                        class="fa-solid fa-arrow-up-z-a"></i></a><a
+                                    href="?sortCol=productstitle&sortOrder=asc"><i
+                                        class="fa-solid fa-arrow-down-z-a"></i></a></th>
+                            <th>Price<a href="?sortCol=productstitle&sortOrder=desc"><i
+                                        class="fa-solid fa-arrow-up-z-a"></i></a><a
+                                    href="?sortCol=productstitle&sortOrder=asc"><i
+                                        class="fa-solid fa-arrow-down-z-a"></i></a></th>
+                            <th>Stock level<a href="?sortCol=productstitle&sortOrder=desc"><i
+                                        class="fa-solid fa-arrow-up-z-a"></i></a><a
+                                    href="?sortCol=productstitle&sortOrder=asc"><i
+                                        class="fa-solid fa-arrow-down-z-a"></i></a></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- Loopa alla produkter och SKAPA tr taggar -->
+                        <?php
+                        foreach ($dbContext->getAllProducts($sortCol, $sortOrder) as $product) {
+                            if ($product->price > 20) {
+                                echo "<tr><td> 
+
+                           $product->title</td> <td>$product->categoryId</td><td>$product->price</td><td>$product->stockLevel</td><td><a href='product.php?id=$product->id'>EDIT</a></td></tr>";
+                            } else {
+                                echo "<tr class='table-info'><td>$product->title</td><td>$product->categoryId</td><td>$product->price</td><td>$product->stockLevel</td><td><a href='product.php?id=$product->id'>EDIT</a></td></tr>";
+                            }
+                        }
+                        ?>
+                    </tbody>
+                </table>
                 <div class="product-selection-container__img"></div>
                 <h3 class="product-selection-container__title"></h3>
-            </div>
             </div>
         </section>
     </main>

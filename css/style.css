@@ -88,7 +88,7 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    
 }
 .quotes-container{
   background-color: rgba(0, 128, 0, 0.443);
@@ -117,4 +117,42 @@ main{
   flex-direction: column;
   justify-content: center;
   
+}
+.product-selection{
+  overflow: scroll;
+}
+
+.table{
+  width:100%;
+}
+.table i{
+  font-size: 1rem;
+}
+.table th{
+  text-align: left;
+}
+
+  .dropdown:hover .dropdown-item {
+    display: block;
+  }
+
+
+.dropdown-item{
+  display: none;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 5;
+  text-decoration: none;
+  color:rgba(0, 128, 0, 0.443);
+}
+.dropdown-menu{
+  position: fixed;
+  transform: translateX(-17%);
+
+}
+.dropdown-item a{
+  text-decoration: none;
+
 }
