@@ -19,7 +19,7 @@ class DBContext
         $this->seedfNotSeeded();
     }
 
-    function getAllCategories($categoryid)
+    function getAllCategories()
     {
         return $this->pdo->query("SELECT * FROM category")->fetchAll(PDO::FETCH_CLASS, 'Category');
 

@@ -3,6 +3,9 @@
 //include_once("Models/Products.php");
 require_once ("Models/Database.php");
 require_once ("Utils/UrlModifier.php");
+require_once ("layout/header.php");
+require_once ("layout/footer.php");
+require_once ("layout/navigation.php");
 
 $sortCol = $_GET['sortCol'] ?? "";
 $sortOrder = $_GET['sortOrder'] ?? "";
@@ -12,55 +15,16 @@ $q = $_GET['q'] ?? '';
 $dbContext = new DBContext();
 $urlModifier = new UrlModifier();
 
-?>
+header_layout("Plantshop")
+    ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webshop</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/aa7322f0de.js" crossorigin="anonymous"></script>
-    <script src="/js/main.js"></script>
-</head>
 
 <body>
-    <section class="video-container">
-        <video class="myvideo" src="assets/nature-movie.mp4" type="video/mp4" autoplay muted loop>
-        </video>
 
-        <header class="header-container">
-            <div class="header-container__title">
-                <h1>Plant <i class="fa-brands fa-pagelines"></i> shoppen</h1>
-
-            </div>
-            <nav class="header-container__navigation">
-                <li class="dropdown">Categories
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#!">All Products</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <?php
-                        foreach ($dbContext->getAllCategories($categoryId) as $category) {
-                            echo "<li><a class='dropdown-item' href='?categoryId=$category->id'>$category->title</a></li> ";
-                        }
-                        ?>
-
-                    </ul>
-                </li>
-                <li>Login</li>
-                <i class="fa-solid fa-cart-shopping">
-                    <div class="cart-count-container"><span class="cart-count__content"><span></div>
-                </i>
-            </nav>
-        </header>
-    </section>
+    <?php
+    navigation_layout($dbContext)
+        ?>
     <main>
         <form class="global-search__input"><input type="text" placeholder="Search" name="q" value="<?php echo $q; ?>" />
             <!-- <input type="hidden" name="sortCol"  value="<?php echo $sortCol ?>" />       -->
@@ -135,12 +99,9 @@ $urlModifier = new UrlModifier();
             </div>
         </section>
     </main>
-    <footer>
-        <div><i class="fa-solid fa-envelope"></i> <span>E-mail</span></div>
-        <div><i class="fa-solid fa-phone"></i> <span>Telephone</span></div>
-        <div><i class="fa-brands fa-facebook"></i><span> Facebook</span></div>
-        <div><i class="fa-solid fa-house"></i><span> Address</span></div>
-    </footer>
+    <?php
+    footer_layout();
+    ?>
 
 </body>
 

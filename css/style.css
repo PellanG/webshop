@@ -105,12 +105,14 @@ footer{
   background-color: rgba(0, 128, 0, 0.443);
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
   span{
     color: white;
     font-family: Pacifico,sans-serif;
     
   }
+ 
 }
 main{
   display: flex;
@@ -152,4 +154,28 @@ main{
   position: fixed;
   transform: translateX(-17%);
 
+}
+.product-main__container{
+  height:60vh;
+  background-color: rgba(0, 128, 0, 0.443);
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  
+}
+.product-buy__btn{
+  width:90px;
+  background-color: white;
+  border:white;
+  border-radius: 5px;
+  cursor: pointer;
+    
+}
+@media only screen and (min-width: 700px){
+footer{
+  flex-direction: row;
+}
 }
