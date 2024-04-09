@@ -24,7 +24,7 @@ class DBContext
         return $this->pdo->query("SELECT * FROM category")->fetchAll(PDO::FETCH_CLASS, 'Category');
 
     }
-    function searchProduct($sortCol, $sortOrder, $q, $categoryId)
+    function searchProduct($sortCol, $sortOrder, $q, $categoryId, $pageNo = 1, $pageSize = 20)
     {
         if ($sortCol == null) {
             $sortCol = "Id";
@@ -64,14 +64,27 @@ class DBContext
 
 
         $sql .= " ORDER BY $sortCol $sortOrder ";
+
+        $sqlCount = str_replace("SELECT * FROM", "SELECT CEIL (COUNT(*)/$pageSize)FROM", $sql);
+
+        $offset = ($pageNo - 1) * $pageSize;
+        $sql .= "limit $offset, $pageSize";
+
         $prep = $this->pdo->prepare($sql);
         $prep->setFetchMode(PDO::FETCH_CLASS, 'Product');
         $prep->execute($paramsArray);
+        $data = $prep->fetchAll();
 
+        $prep2 = $this->pdo->prepare($sqlCount);
+        $prep2->execute($paramsArray);
 
-        return $prep->fetchAll();
+        $num_pages = $prep2->fetchColumn();
+
+        $arr = ["data" => $data, "num_pages" => $num_pages];
+
+        return $arr;
     }
-
+    //$prep->fetchAll()
 
 
     function getAllProducts($sortCol, $sortOrder, $q, $categoryId)
