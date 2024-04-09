@@ -24,13 +24,66 @@ class DBContext
         return $this->pdo->query("SELECT * FROM category")->fetchAll(PDO::FETCH_CLASS, 'Category');
 
     }
-
-
-
-    function getAllProducts($sortCol, $sortOrder)
+    function searchProduct($sortCol, $sortOrder, $q, $categoryId)
     {
+        if ($sortCol == null) {
+            $sortCol = "Id";
+        }
+        if ($sortOrder == null) {
+            $sortOrder = "asc";
+        }
+        $sql = "SELECT * FROM products ";
+        $paramsArray = [];
+        $addedWhere = false;
+        if ($q != null && strlen($q) > 0) {  // Omman angett ett q - WHERE   tef
+            // select * from product where title like '%tef%' // Stefan  tefan atef
+            if (!$addedWhere) {
+                $sql = $sql . " WHERE ";
+                $addedWhere = true;
+            } else {
+                $sql = $sql . " AND ";
+            }
+            $sql = $sql . " ( categoryId like :q";
+            $sql = $sql . " OR  price like :q";
+            $sql = $sql . " OR  stockLevel like :q";
+            $sql = $sql . " OR  title like :q )";
+            $paramsArray["q"] = '%' . $q . '%';
+        }
 
-        return $this->pdo->query('SELECT * FROM products')->fetchAll(PDO::FETCH_CLASS, 'Product');
+        if ($categoryId != null && strlen($categoryId) > 0) {
+            if (!$addedWhere) {
+                $sql = $sql . " WHERE ";
+                $addedWhere = true;
+            } else {
+                $sql = $sql . " AND ";
+            }
+
+            $sql = $sql . " ( CategoryId = :categoryId )";
+            $paramsArray["categoryId"] = $categoryId;
+        }
+
+
+        $sql .= " ORDER BY $sortCol $sortOrder ";
+        $prep = $this->pdo->prepare($sql);
+        $prep->setFetchMode(PDO::FETCH_CLASS, 'Product');
+        $prep->execute($paramsArray);
+
+
+        return $prep->fetchAll();
+    }
+
+
+
+    function getAllProducts($sortCol, $sortOrder, $q, $categoryId)
+    {
+        if ($sortCol == null) {
+            $sortCol = "Id";
+        }
+        if ($sortOrder == null) {
+            $sortOrder = "asc";
+        }
+
+        return $this->pdo->query("SELECT * FROM products ORDER BY $sortCol $sortOrder")->fetchAll(PDO::FETCH_CLASS, 'Product');
     }
     function getProduct($id)
     {
@@ -144,14 +197,14 @@ class DBContext
 
     }
 
-    function createIfNotExisting($title, $price, $stockLevel, $categoryName)
+    function createIfNotExisting($title, $price, $stockLevel, $categorytitle)
     {
         $existing = $this->getProductByTitle($title);
         if ($existing) {
             return;
         }
         ;
-        return $this->addProduct($title, $price, $stockLevel, $categoryName);
+        return $this->addProduct($title, $price, $stockLevel, $categorytitle);
 
     }
 
@@ -163,13 +216,13 @@ class DBContext
     }
 
 
-    function addProduct($title, $price, $stockLevel, $categoryName)
+    function addProduct($title, $price, $stockLevel, $categorytitle)
     {
 
-        $category = $this->getCategoryByTitle($categoryName);
+        $category = $this->getCategoryByTitle($categorytitle);
         if ($category == false) {
-            $this->addCategory($categoryName);
-            $category = $this->getCategoryByTitle($categoryName);
+            $this->addCategory($categorytitle);
+            $category = $this->getCategoryByTitle($categorytitle);
         }
 
 
