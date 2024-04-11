@@ -19,9 +19,9 @@ $router->addRoute('/product', function () {
 // });
 
 
-// $router->addRoute('/office', function () {
-//     require __DIR__ . '/Pages/office.php';
-// });
+$router->addRoute('/category', function () {
+    require __DIR__ . '/Pages/category.php';
+});
 
 // $router->addRoute('/input', function () {
 //     require __DIR__ . '/Pages/form.php';

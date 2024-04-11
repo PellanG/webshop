@@ -155,7 +155,7 @@ main{
   transform: translateX(-17%);
 
 }
-.product-main__container{
+.product-main__container,.category-main__container{
   height:60vh;
   background-color: rgba(0, 128, 0, 0.443);
   width:100%;

@@ -78,12 +78,8 @@ header_layout("Plantshop")
                                         <?php echo $product->title ?>
                                     </a>
                                 </td>
-
                                 <td>
-
                                     <?php echo $product->categoryId ?>
-
-
                                 </td>
                                 <td>
                                     <?php echo $product->price ?>
@@ -91,9 +87,7 @@ header_layout("Plantshop")
                                 <td>
                                     <?php echo $product->stockLevel ?>
                                 </td>
-
                             </tr>
-                            <!-- echo "<tr class='table-info'><td>$product->title</td><td>$product->categoryId</td><td>$product->price</td><td>$product->stockLevel</td><td><a href='product?id=$product->id'>EDIT</a></td></tr>"; -->
                             <?php
                         }
                         ?>

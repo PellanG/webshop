@@ -23,10 +23,13 @@ function navigation_layout($dbContext)
                         </li>
                         <?php
                         foreach ($dbContext->getAllCategories() as $category) {
-                            echo "<li><a class='dropdown-item' href='?categoryId=$category->id'>$category->title</a></li> ";
+                            ?>
+                            <li><a class='dropdown-item' href='category?id=<?php echo $category->id ?>'>
+                                    <?php echo $category->title ?>
+                                </a></li>
+                            <?php
                         }
                         ?>
-
                     </ul>
                 </li>
                 <li>Login</li>

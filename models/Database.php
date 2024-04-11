@@ -120,6 +120,13 @@ class DBContext
         $prep->execute(['title' => $title]);
         return $prep->fetch();
     }
+    function getCategory($id): Category|false
+    {
+        $prep = $this->pdo->prepare("SELECT * FROM category where id=:id");
+        $prep->setFetchMode(PDO::FETCH_CLASS, 'Category');
+        $prep->execute(['id' => $id]);
+        return $prep->fetch();
+    }
 
 
 
