@@ -11,13 +11,13 @@ function navigation_layout($dbContext)
 
         <header class="header-container">
             <div class="header-container__title">
-                <h1>Plant <i class="fa-brands fa-pagelines"></i> shoppen</h1>
+                <h1><a href="/">Plant <i class="fa-brands fa-pagelines"></i> shoppen</a></h1>
 
             </div>
             <nav class="header-container__navigation">
                 <li class="dropdown">Categories
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#!">All Products</a></li>
+                        <li><a class="dropdown-item" href="/allproducts">All Products</a></li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>

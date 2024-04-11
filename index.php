@@ -14,9 +14,9 @@ $router->addRoute('/product', function () {
     require __DIR__ . '/pages/product.php';
 });
 
-// $router->addRoute('/newcustomer', function () {
-//     require (__DIR__ . '/Pages/newcustomer.php');
-// });
+$router->addRoute('/allproducts', function () {
+    require (__DIR__ . '/pages/allproducts.php');
+});
 
 
 $router->addRoute('/category', function () {

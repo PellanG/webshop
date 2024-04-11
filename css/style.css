@@ -19,6 +19,10 @@
     align-items: center;
     background-color: rgba(13, 157, 73, 0.203);
     transform: translate(50px, 50px);
+    a{
+      text-decoration: none;
+      color: white;
+    }
   }
     h1{
       color: white;
@@ -93,12 +97,13 @@ h2{
 .quotes-container{
   background-color: rgba(0, 128, 0, 0.443);
 }
-.product-selection{
+.product-selection,.allproducts-main__container,.product-main__container,.category-main__container{
   background-color: rgba(0, 128, 0, 0.443);
   width:99%;
   height:30vh;
   border: 2px solid white;
   border-radius: 5px;
+  overflow: scroll;
 }
 footer{
   height: 28vh;
@@ -120,9 +125,7 @@ main{
   justify-content: center;
   
 }
-.product-selection{
-  overflow: scroll;
-}
+
 
 .table{
   width:100%;
@@ -155,8 +158,8 @@ main{
   transform: translateX(-17%);
 
 }
-.product-main__container,.category-main__container{
-  height:60vh;
+/* .product-main__container,.category-main__container{
+  height:50vh;
   background-color: rgba(0, 128, 0, 0.443);
   width:100%;
   display: flex;
@@ -165,7 +168,7 @@ main{
   align-items: center;
   gap: 20px;
   
-}
+} */
 .product-buy__btn{
   width:90px;
   background-color: white;
