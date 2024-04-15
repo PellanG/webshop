@@ -33,7 +33,19 @@ function navigation_layout($dbContext)
                         ?>
                     </ul>
                 </li>
-                <li><a href="/login" class="login-link">Login</a></li>
+                <?php
+                if (!$dbContext->getUsersDatabase()->getAuth()->isLoggedIn()) {
+                    ?>
+                    <li><a href="/login" class="login-link">Login</a></li>
+
+                    <?php
+                } else {
+                    ?>
+
+                    <a href="/logout" class="logout-link"> Log out </a>
+                    <?php
+                }
+                ?>
                 <i class="fa-solid fa-cart-shopping">
                     <div class="cart-count-container"><span class="cart-count__content"><span></div>
                 </i>

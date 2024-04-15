@@ -298,6 +298,8 @@ class DBContext
 
         $this->pdo->exec($sql);
 
+        $this->usersDatabase->setupUsers();
+        $this->usersDatabase->seedUsers();
 
         $initialized = true;
     }

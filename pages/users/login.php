@@ -44,14 +44,17 @@ header_layout("Logga in");
         </div>
         <form method="post" class="login-form">
             <input class="input-login__username" type="text" name="username" value="<?php echo $username ?>"
-                placeholder="Username">
+                placeholder="Användarnamn">
 
-            <input class="input-login__password" type="password" name="password" placeholder="Password">
+            <input class="input-login__password" type="password" name="password" placeholder="Lösenord">
 
-            <input type="submit" class="listbutton" value="Login">
+
             <div class="login-link__container">
-                <a href="/" class="listbutton">Cancel</a>
-                <a href="/" class="listbutton">Forgot password?</a>
+                <!-- <a href="/" class="listbutton">Cancel</a> -->
+                <input type="submit" class="listbutton" value="Logga in">
+                <a href="/" class="listbutton">Glömt lösenord?</a>
+
+                <a href="/register" class="listbutton">Bli medlem här!</a>
             </div>
         </form>
 
