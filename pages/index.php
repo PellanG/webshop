@@ -68,9 +68,8 @@ header_layout("Plantshop")
 
                     <tbody>
                         <?php
+                        foreach ($dbContext->getPopularProducts() as $product) {
 
-                        $result = $dbContext->searchProduct($sortCol, $sortOrder, $q, $categoryId, $pageNo, $pageSize);
-                        foreach ($result["data"] as $product) {
                             ?>
                             <tr class="table-info">
                                 <td>
@@ -87,6 +86,9 @@ header_layout("Plantshop")
                                 <td>
                                     <?php echo $product->stockLevel ?>
                                 </td>
+                                <td>
+                                    <?php echo $product->popularity ?>
+                                </td>
                             </tr>
                             <?php
                         }
@@ -99,19 +101,7 @@ header_layout("Plantshop")
             </div>
         </section>
     </main>
-    <div class="page-selector">
-        <?php
-        for ($i = 1; $i <= $result["num_pages"]; $i++) {
-            if ($pageNo == $i) {
-                echo "$i&nbsp;";    // &nbsp; = fusk space så Stefan slapp göra margin i CSS
-            } else {
-                echo "<a class='listbutton' href='?sortCol=$sortCol&sortOrder=$sortOrder&q=$q&pageNo=$i'>$i</a>&nbsp;";
-            }
-        }
 
-
-        ?>
-    </div>
     <?php
     footer_layout();
     ?>

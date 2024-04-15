@@ -2,6 +2,7 @@
 require_once ('Models/Product.php');
 require_once ('Models/Category.php');
 
+
 class DBContext
 {
 
@@ -84,7 +85,7 @@ class DBContext
 
         return $arr;
     }
-    //$prep->fetchAll()
+
 
 
     function getAllProducts($sortCol, $sortOrder, $q, $categoryId)
@@ -127,7 +128,11 @@ class DBContext
         $prep->execute(['id' => $id]);
         return $prep->fetch();
     }
+    function getPopularProducts()
+    {
+        return $this->pdo->query('select * from products order by popularity desc limit 0,10')->fetchAll(PDO::FETCH_CLASS, 'Product');
 
+    }
 
 
     function seedfNotSeeded()
@@ -275,6 +280,7 @@ class DBContext
             `title` varchar(200) NOT NULL,
             `price` INT,
             `stockLevel` INT,
+            `popularity` INT,
             `categoryId` INT NOT NULL,
             PRIMARY KEY (`id`),
             FOREIGN KEY (`categoryId`)
@@ -282,6 +288,7 @@ class DBContext
             ) ";
 
         $this->pdo->exec($sql);
+
 
         $initialized = true;
     }
