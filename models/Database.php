@@ -1,12 +1,20 @@
 <?php
-require_once ('Models/Product.php');
-require_once ('Models/Category.php');
+require_once ('models/Product.php');
+require_once ('models/UserDatabase.php');
+require_once ('models/Category.php');
+
 
 
 class DBContext
 {
 
     private $pdo;
+    private $usersDatabase;
+
+    function getUsersDatabase()
+    {
+        return $this->usersDatabase;
+    }
 
     function __construct()
     {
@@ -16,6 +24,7 @@ class DBContext
         $pass = $_ENV['pass'];
         $dsn = "mysql:host=$host;dbname=$db";
         $this->pdo = new PDO($dsn, $user, $pass);
+        $this->usersDatabase = new UserDatabase($this->pdo);
         $this->initIfNotInitialized();
         $this->seedfNotSeeded();
     }

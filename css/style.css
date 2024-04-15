@@ -47,7 +47,13 @@
     li{
       text-decoration: none;
       list-style: none;
+     
   }
+  .login-link{
+    text-decoration: none;
+    color: white;
+  }
+  
 }
 
    .global-search__input {
@@ -97,10 +103,10 @@ h2{
 .quotes-container{
   background-color: rgba(0, 128, 0, 0.443);
 }
-.product-selection,.allproducts-main__container,.product-main__container,.category-main__container{
+.product-selection,.allproducts-main__container,.product-main__container,.category-main__container,.login-main__container{
   background-color: rgba(0, 128, 0, 0.443);
   width:99%;
-  height:30vh;
+  height:40vh;
   border: 2px solid white;
   border-radius: 5px;
   overflow: scroll;
@@ -184,4 +190,33 @@ footer{
 }
 .page-selector{
   background-color:rgba(0, 128, 0, 0.443); ;
+}
+
+.login-header__container{
+  height:70px;
+  margin-bottom: 10px;
+}
+.input-login__username,.input-login__password{
+width:70%;
+padding: 5px;
+}
+.login-form{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.listbutton{
+ 
+  width:20%;
+  padding: 5px;
+  
+  color: rgba(0, 128, 0, 0.443);
+}
+.login-link__container{
+  width:20%;
+  display: flex;
+  justify-content: space-between;
+
 }

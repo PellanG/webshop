@@ -1,6 +1,7 @@
 <?php
 
 
+
 function navigation_layout($dbContext)
 {
     ?>
@@ -32,7 +33,7 @@ function navigation_layout($dbContext)
                         ?>
                     </ul>
                 </li>
-                <li>Login</li>
+                <li><a href="/login" class="login-link">Login</a></li>
                 <i class="fa-solid fa-cart-shopping">
                     <div class="cart-count-container"><span class="cart-count__content"><span></div>
                 </i>

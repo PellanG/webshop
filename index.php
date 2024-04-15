@@ -23,6 +23,9 @@ $router->addRoute('/category', function () {
     require __DIR__ . '/Pages/category.php';
 });
 
+$router->addRoute('/login', function () {
+    require __DIR__ . '/pages/users/login.php';
+});
 // $router->addRoute('/input', function () {
 //     require __DIR__ . '/Pages/form.php';
 // });
@@ -35,9 +38,7 @@ $router->addRoute('/category', function () {
 //     require __DIR__ . '/Pages/admin.php';
 // });
 
-// $router->addRoute('/user/login', function () {
-//     require __DIR__ . '/Pages/users/login.php';
-// });
+
 
 // $router->addRoute('/user/logout', function () {
 //     require __DIR__ . '/Pages/users/logout.php';
