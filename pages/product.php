@@ -20,9 +20,12 @@ navigation_layout($dbContext);
 ?>
 
 <section class="product-main__container">
-    <h3>Du clickade på
+    <h3>
         <?php echo $product->title ?>
     </h3>
+    <div class="product-img__container"> <img src="./assets/product-img/<?php echo $product->img; ?>">
+    </div>
+    <p><?php echo $product->longDesc ?></p>
     <button class="product-buy__btn">Lägg i varukorg</button>
 
 </section>

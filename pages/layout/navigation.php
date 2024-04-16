@@ -43,7 +43,9 @@ function navigation_layout($dbContext)
                     ?>
 
                     <a href="/logout" class="logout-link"> Log out </a>
+                    <a href="/myaccount" class="logout-link">Mitt konto</a>
                     <?php
+
                 }
                 ?>
                 <i class="fa-solid fa-cart-shopping">

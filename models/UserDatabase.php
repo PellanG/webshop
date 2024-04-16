@@ -13,8 +13,10 @@ class UserDatabase
   function __construct($pdo)
   {
     $this->pdo = $pdo;
+    $this->setupUsers();
     $this->auth = new \Delight\Auth\Auth($pdo);
   }
+
 
   function setupUsers()
   {
@@ -117,4 +119,3 @@ class UserDatabase
 }
 
 
-?>

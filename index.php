@@ -35,9 +35,9 @@ $router->addRoute('/register', function () {
     require __DIR__ . '/pages/users/register.php';
 });
 
-// $router->addRoute('/input', function () {
-//     require __DIR__ . '/Pages/form.php';
-// });
+$router->addRoute('/myaccount', function () {
+    require __DIR__ . '/pages/users/account.php';
+});
 
 // $router->addRoute('/viewcustomer', function () {
 //     require __DIR__ . '/Pages/viewcustomer.php';
