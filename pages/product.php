@@ -4,6 +4,7 @@ require_once ("Utils/UrlModifier.php");
 require_once ("layout/navigation.php");
 require_once ("layout/header.php");
 require_once ("layout/footer.php");
+require_once ("layout/singleproduct.php");
 
 $dbContext = new DBContext();
 $id = $_GET['id'];
@@ -20,15 +21,18 @@ navigation_layout($dbContext);
 ?>
 
 <section class="product-main__container">
-    <h3>
+    <!-- <h3>
         <?php echo $product->title ?>
     </h3>
     <div class="product-img__container"> <img src="./assets/product-img/<?php echo $product->img; ?>">
     </div>
     <p><?php echo $product->longDesc ?></p>
-    <button class="product-buy__btn">Lägg i varukorg</button>
-
+    <button class="product-buy__btn">Lägg i varukorg</button> -->
+    <?php
+    singleproduct_layout($product)
+        ?>
 </section>
+
 <?php
 footer_layout()
     ?>
