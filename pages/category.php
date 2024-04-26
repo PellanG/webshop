@@ -79,6 +79,7 @@ navigation_layout($dbContext);
 </section>
 
 <div class="page-selector">
+    <p>Välj sida</p>
     <?php
     for ($i = 1; $i <= $result["num_pages"]; $i++) {
         if ($pageNo == $i) {

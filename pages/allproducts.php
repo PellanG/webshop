@@ -12,7 +12,7 @@ $sortOrder = $_GET['sortOrder'] ?? "";
 $categoryId = $_GET['categoryid'] ?? "";
 $q = $_GET['q'] ?? '';
 $pageNo = $_GET['pageNo'] ?? '1';
-$pageSize = $_GET['pageSize'] ?? '20';
+$pageSize = $_GET['pageSize'] ?? '10';
 
 $urlModifier = new UrlModifier();
 $dbContext = new DBContext();
@@ -46,6 +46,7 @@ navigation_layout($dbContext);
     </div>
 </section>
 <div class="page-selector">
+    <p>Välj sida</p>
     <?php
     for ($i = 1; $i <= $result["num_pages"]; $i++) {
         if ($pageNo == $i) {
