@@ -36,9 +36,6 @@ header_layout("Logga in");
 
 
     <div class="login-main__container">
-
-
-
         <div class="login-header__container">
             <h2>Logga in <?php echo $message; ?></h2>
         </div>
@@ -47,10 +44,7 @@ header_layout("Logga in");
                 placeholder="Användarnamn">
 
             <input class="input-login__password" type="password" name="password" placeholder="Lösenord">
-
-
             <div class="login-link__container">
-                <!-- <a href="/" class="listbutton">Cancel</a> -->
                 <input type="submit" class="listbutton" value="Logga in">
                 <a href="/" class="listbutton">Glömt lösenord?</a>
 

@@ -46,8 +46,7 @@ class DBContext
         $sql = "SELECT * FROM products ";
         $paramsArray = [];
         $addedWhere = false;
-        if ($q != null && strlen($q) > 0) {  // Omman angett ett q - WHERE   tef
-            // select * from product where title like '%tef%' // Stefan  tefan atef
+        if ($q != null && strlen($q) > 0) {
             if (!$addedWhere) {
                 $sql = $sql . " WHERE ";
                 $addedWhere = true;
@@ -171,67 +170,18 @@ class DBContext
         $this->createIfNotExisting('Chokladskära,- 3-pack', 89, 39, 'Sommarblommor', "Cosmos atrosanguineus Chocolate - Pluggplanta", 'chokladskara.jpeg', "Chokladskäran passar bra både till urnor, krukor och för plantering i rabatten. Växtsättet är överhängande och graciös, och den bildar nästan som en sky över rabattens övriga blommor.Med sin doft av kakao och sin varma brunröda färg är den ett härligt inslag i trädgården. Doftens intensitet varierar under dygnets timmar.", 1);
         $this->createIfNotExisting("Gerbera 'Garvinea Classic Femmy'", 75, 29, 'Sommarblommor', "Jumboplugg av Gerbera x jamesoni", 'gerbera-garvinea.jpeg', "Gerbera passar perfekt i kruka på uteplats eller balkong. Får stadiga stjälkar och blir ca 30 cm hög", 2);
         $this->createIfNotExisting("Jätteverbena 'Vanity', 3-pack", 79, 0, 'Sommarblommor', "Verbena bonariensis Vanity - Pluggplanta", 'jatteverbena-vanity.jpeg', "En kortare mer kompakt sort med lila-blommor. Älskas av bin och fjärilar. Passar perfekt i kruka och rabatt.", 4);
-        // $this->createIfNotExisting("Jätteverbena 'Vanity', 3-pack", 79, 0, 'Sommarblommor', "Verbena bonariensis Vanity - Pluggplanta", 'jatteverbena-vanity.jpeg', "En kortare mer kompakt sort med lila-blommor. Älskas av bin och fjärilar. Passar perfekt i kruka och rabatt.", 3);
-        // $this->createIfNotExisting('Teatime Chocolate Biscuits', 213, 25, 'Confections');
-        // $this->createIfNotExisting('Sir Rodneys Marmalade', 81, 40, 'Confections');
-        // $this->createIfNotExisting('Sir Rodneys Scones', 10, 3, 'Confections');
-        // $this->createIfNotExisting('Gustafs Knäckebröd', 21, 104, 'Grains/Cereals');
-        // $this->createIfNotExisting('Tunnbröd', 9, 61, 'Grains/Cereals');
-        // $this->createIfNotExisting('Guaraná Fantástica', 231, 20, 'Beverages');
-        // $this->createIfNotExisting('NuNuCa Nuß-Nougat-Creme', 14, 76, 'Confections');
-        // $this->createIfNotExisting('Gumbär Gummibärchen', 312, 15, 'Confections');
-        // $this->createIfNotExisting('Schoggi Schokolade', 213, 49, 'Confections');
-        // $this->createIfNotExisting('Rössle Sauerkraut', 132, 26, 'Produce');
-        // $this->createIfNotExisting('Thüringer Rostbratwurst', 231, 0, 'Meat/Poultry');
-        // $this->createIfNotExisting('Nord-Ost Matjeshering', 321, 10, 'Seafood');
-        // $this->createIfNotExisting('Gorgonzola Telino', 321, 0, 'Dairy Products');
-        // $this->createIfNotExisting('Mascarpone Fabioli', 32, 9, 'Dairy Products');
-        // $this->createIfNotExisting('Geitost', 12, 112, 'Dairy Products');
-        // $this->createIfNotExisting('Sasquatch Ale', 14, 111, 'Beverages');
-        // $this->createIfNotExisting('Steeleye Stout', 18, 20, 'Beverages');
-        // $this->createIfNotExisting('Inlagd Sill', 19, 112, 'Seafood');
-        // $this->createIfNotExisting('Gravad lax', 26, 11, 'Seafood');
-        // $this->createIfNotExisting('Côte de Blaye', 1, 17, 'Beverages');
-        // $this->createIfNotExisting('Chartreuse verte', 18, 69, 'Beverages');
-        // $this->createIfNotExisting('Boston Crab Meat', 2, 123, 'Seafood');
-        // $this->createIfNotExisting('Jacks New England Clam Chowder', 2, 85, 'Seafood');
-        // $this->createIfNotExisting('Singaporean Hokkien Fried Mee', 14, 26, 'Grains/Cereals');
-        // $this->createIfNotExisting('Ipoh Coffee', 46, 17, 'Beverages');
-        // $this->createIfNotExisting('Gula Malacca', 2, 27, 'Condiments');
-        // $this->createIfNotExisting('Rogede sild', 3, 5, 'Seafood');
-        // $this->createIfNotExisting('Spegesild', 12, 95, 'Seafood');
-        // $this->createIfNotExisting('Zaanse koeken', 4, 36, 'Confections');
-        // $this->createIfNotExisting('Chocolade', 6, 15, 'Confections');
-        // $this->createIfNotExisting('Maxilaku', 5, 10, 'Confections');
-        // $this->createIfNotExisting('Valkoinen suklaa', 1, 65, 'Confections');
-        // $this->createIfNotExisting('Manjimup Dried Apples', 53, 20, 'Produce');
-        // $this->createIfNotExisting('Filo Mix', 7, 38, 'Grains/Cereals');
-        // $this->createIfNotExisting('Perth Pasties', 4, 0, 'Meat/Poultry');
-        // $this->createIfNotExisting('Tourtière', 7, 21, 'Meat/Poultry');
-        // $this->createIfNotExisting('Pâté chinois', 24, 115, 'Meat/Poultry');
-        // $this->createIfNotExisting('Gnocchi di nonna Alice', 38, 21, 'Grains/Cereals');
-        // $this->createIfNotExisting('Ravioli Angelo', 7, 36, 'Grains/Cereals');
-        // $this->createIfNotExisting('Escargots de Bourgogne', 7, 62, 'Seafood');
-        // $this->createIfNotExisting('Raclette Courdavault', 55, 79, 'Dairy Products');
-        // $this->createIfNotExisting('Camembert Pierrot', 34, 19, 'Dairy Products');
-        // $this->createIfNotExisting('Sirop dérable', 7, 113, 'Condiments');
-        // $this->createIfNotExisting('Tarte au sucre', 7, 17, 'Confections');
-        // $this->createIfNotExisting('Vegie-spread', 7, 24, 'Condiments');
-        // $this->createIfNotExisting('Wimmers gute Semmelknödel', 7, 22, 'Grains/Cereals');
-        // $this->createIfNotExisting('Louisiana Fiery Hot Pepper Sauce', 7, 76, 'Condiments');
-        // $this->createIfNotExisting('Louisiana Hot Spiced Okra', 17, 4, 'Condiments');
-        // $this->createIfNotExisting('Laughing Lumberjack Lager', 14, 52, 'Beverages');
-        // $this->createIfNotExisting('Scottish Longbreads', 8, 6, 'Confections');
-        // $this->createIfNotExisting('Gudbrandsdalsost', 8, 26, 'Dairy Products');
-        // $this->createIfNotExisting('Outback Lager', 15, 15, 'Beverages');
-        // $this->createIfNotExisting('Flotemysost', 8, 26, 'Dairy Products');
-        // $this->createIfNotExisting('Mozzarella di Giovanni', 8, 14, 'Dairy Products');
-        // $this->createIfNotExisting('Röd Kaviar', 15, 101, 'Seafood');
-        // $this->createIfNotExisting('Longlife Tofu', 10, 4, 'Produce');
-        // $this->createIfNotExisting('Rhönbräu Klosterbier', 9, 125, 'Beverages');
-        // $this->createIfNotExisting('Lakkalikööri', 9, 57, 'Beverages');
-        // $this->createIfNotExisting('Original Frankfurter grüne Soße', 13, 32, 'Condiments');
-        // $this->createIfNotExisting('Tidningen Buster', 13, 32, 'Tidningar');
+        $this->createIfNotExisting("Palettblad 'Black Dragon'", 49, 0, 'Palettblad', "Plectranthus scutellarioides 'Black Dragon'", 'black-dragon.jpeg', 'Välförgrenade växter med mycket stora, rynkade, sammetslena svarta blad med rubinröd mitt. Black Dragon växer till 45 cm hög och är en exeptionell växt för rabatter och krukor', 3);
+        $this->createIfNotExisting("Palettblad 'Fairway Mosaic'", 35, 50, 'Palettblad', "Plectranthus scutellarioides 'Fairway Mosaic'", "palettblad-fairway-mosaic.jpeg", "Ger extra lågväxta, förgrenade plantor. Fairway blommar väldigt sent och ger en lång säsong av härliga färger.Planteras i kruka, eller i framkant i trädgårdsrabatten.Omplanteras efter 5 veckor från sådd", 8);
+        $this->createIfNotExisting("Palettblad 'Fairway Red Velvet", 35, 31, 'Palettblad', "Frö till palettblad, Plectranthus scutellarioides 'Fairway Red Velvet'", "palettblad-red-velvet.jpeg", "Ger extra lågväxta, förgrenade plantor. Fairway blommar väldigt sent och ger en lång säsong av härliga färger.Planteras i kruka, eller i framkant i trädgårdsrabatten.Omplanteras efter 5 veckor från sådd", 5);
+        $this->createIfNotExisting("Palettblad 'Giant Exhibition Magma'", 49, 10, 'Palettblad', "Frö till palettblad, Plectranthus scutellarioides 'Giant Exhibition Magma'", "palettblad-giant-exhibition-magma.jpeg", "Visar anmärkningsvärd motståndskraft mot värme.Bladen är extremt stora.Används i rabatter samt blomlådor och för krukodling. Kan odlas inomhus.Från groning till mogna plantor på 13 veckor.", 7);
+        $this->createIfNotExisting("Palettblad 'Giant Exhibition Palisandra Black'", 49, 104, 'Palettblad', "Frö till palettblad, Plectranthus scutellarioides 'Giant Exhibition Palisandra Black'", "palettblad-giant-exhibition-palisandra-black.jpeg", "Visar anmärkningsvärd motståndskraft mot värme.Bladen är extremt stora.Används i rabatter samt blomlådor och för krukodling. Kan odlas inomhus.Från groning till mogna plantor på 13 veckor.", 9);
+        $this->createIfNotExisting("Palettblad 'Solento Dark Cherry'", 45, 61, 'Palettblad', "Frö till palettblad, Plectranthus scutellarioides 'Solento Dark Cherry'", "palettblad-solento-dark-cherry-volmary.jpeg", "Palettblad 'Solento Dark Cherry' har en intensiv rosa bas med mörkt körsbärsröd kant och en mycket tunn grön ytterkant. Välförgrenad, rund plantstruktur. Sorten blir ca 35 cm hög och har mycket god värme- och soltålighet", 2);
+        $this->createIfNotExisting("Palettblad 'Superfine Rainbow Color Pride'", 35, 20, 'Palettblad', "Frö till palettblad, Plectranthus scutellarioides 'Superfine Rainbow Color Pride'", "palettblad-superfine-rainbow-color-pride.jpeg", "Tillväxten är upprätt med utmärkt förgrening. Stora livligt färgade blad.Används i rabatter samt i blomlådor och krukor. Passar till 10 cm krukor och större. Från groning till omplantering inom ca 5 veckor.", 3);
+        $this->createIfNotExisting("Palettblad 'Superfine Rainbow Festive Dance'", 35, 76, 'Palettblad', "Frö till palettblad, Plectranthus scutellarioides 'Superfine Rainbow Festive Dance'", "palettblad-rainbow-festive-dance.jpeg", "Tillväxten är upprätt med utmärkt förgrening. Stora livligt färgade blad.Används i rabatter samt i blomlådor och krukor. Passar till 10 cm krukor och större. Från groning till omplantering inom ca. 5 veckor.", 8);
+        $this->createIfNotExisting("Palettblad 'Superfine Rainbow Multicolor'", 35, 15, 'Palettblad', "Frö till palettblad, Plectranthus scutellarioides 'Superfine Rainbow Multicolor'", "palettblad-superfine-rainbow-multicolor.jpeg", "Tillväxten är upprätt med utmärkt förgrening. Stora livligt färgade blad.Används i rabatter samt i blomlådor och krukor. Passar till 10 cm krukor och större. Från groning till omplantering inom ca. 5 veckor.", 6);
+        $this->createIfNotExisting("Svartöga 'Sunny Susy Pink Beauty', 3-pack", 79, 49, 'Sommarblommor', "Thunbergia alata 'Sunny Susy® Pink Beauty' - Pluggplanta", "svartoga-sunny-susy-pink-beauty.jpeg", "Slingerväxt med grönt fint bladverk till de mjukt rosa blommorna. Svartöga är en mycket allsidig och användbar prydnadsväxt. Det frodiga växtsättet gör att Svartöga kan användas både till ampelplanteringar och större planteringskärl.", 9);
+        $this->createIfNotExisting("Änglatrumpet, gul", 119, 26, 'Sommarblommor', "Brugmansia suaveolens", "anglatrumpet-gul.jpeg", "En mycket rikblommande änglatrumpet med guldgula 'trumpeter'.Trivs bäst utomhus sommartid. Övervintras svalt och ljust.Planteras i stor kruka. Växer snabbt. Ju större kruka, desto större planta.Gödsla och vattna rikligt.", 6);
+
         $seeded = true;
 
     }
@@ -264,9 +214,6 @@ class DBContext
             $category = $this->getCategoryByTitle($categorytitle);
         }
 
-
-        //insert plus get new id 
-        // return id             
         $prep = $this->pdo->prepare('INSERT INTO products (title, price, stockLevel, categoryId,shortDesc, img, longDesc,popularity) VALUES(:title, :price, :stockLevel,:categoryId,:shortDesc,:img,:longDesc,:popularity)');
         $prep->execute(["title" => $title, "price" => $price, "stockLevel" => $stockLevel, "categoryId" => $category->id, "shortDesc" => $shortDesc, "img" => $img, "longDesc" => $longDesc, "popularity" => $popularity]);
         return $this->pdo->lastInsertId();

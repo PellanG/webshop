@@ -39,20 +39,6 @@ $router->addRoute('/myaccount', function () {
     require __DIR__ . '/pages/users/account.php';
 });
 
-// $router->addRoute('/viewcustomer', function () {
-//     require __DIR__ . '/Pages/viewcustomer.php';
-// });
-
-// $router->addRoute('/admin', function () {
-//     require __DIR__ . '/Pages/admin.php';
-// });
-
-
-
-
-
-
-
 
 $router->dispatch();
 ?>
