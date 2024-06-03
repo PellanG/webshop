@@ -38,7 +38,7 @@ class UserDatabase
           `status` tinyint(2) unsigned NOT NULL DEFAULT '0',
           `verified` tinyint(1) unsigned NOT NULL DEFAULT '0',
           `resettable` tinyint(1) unsigned NOT NULL DEFAULT '1',
-          `roles_mask` int(10) unsigned NOT NULL DEFAULT '0',
+          `roles_mask` int(10) unsigned NOT NULL,
           `registered` int(10) unsigned NOT NULL,
           `last_login` int(10) unsigned DEFAULT NULL,
           `force_logout` mediumint(7) unsigned NOT NULL DEFAULT '0',

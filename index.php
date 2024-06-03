@@ -39,6 +39,9 @@ $router->addRoute('/myaccount', function () {
     require __DIR__ . '/pages/users/account.php';
 });
 
+$router->addRoute('/sms', function () {
+    require __DIR__ . '/pages/sms.php';
+});
 
 $router->dispatch();
 ?>

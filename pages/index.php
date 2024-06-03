@@ -9,6 +9,7 @@ require_once ("layout/navigation.php");
 require_once ("layout/sorttable.php");
 require_once ("layout/singleproduct.php");
 
+
 $sortCol = $_GET['sortCol'] ?? "";
 $sortOrder = $_GET['sortOrder'] ?? "";
 $categoryId = $_GET['categoryid'] ?? "";

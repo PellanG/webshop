@@ -12,6 +12,7 @@ $registeredOk = false;
 $passwordAgain = "";
 $error = false;
 $password = "";
+$userId = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $passwordAgain = $_POST['passwordAgain'];
     $username = $_POST['username'];
@@ -32,6 +33,11 @@ header_layout("Registrera");
 
 <div class="register-main__container">
     <?php if ($registeredOk) {
+        ?>
+        <?php
+        if ("Student") {
+            $dbContext->getUsersDatabase()->getAuth()->admin()->addRoleForUserById($userId, UserRoles::STUDENT);
+        }
         ?>
         <div>
             <h2>Tack för din registering!</h2>
